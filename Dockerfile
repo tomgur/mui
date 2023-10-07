@@ -7,4 +7,4 @@ RUN npm install --save react react-dom react-scripts react-router-dom react-rout
 RUN npm install
 RUN npm run build
 EXPOSE 443
-ENTRYPOINT ["node" , "server.js"]
+ENTRYPOINT ["/usr/bin/node" , "/opt/app/server.js"]

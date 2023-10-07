@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Avatar, Badge, Box, InputBase, List, Menu, MenuItem, styled, Toolbar, Typography} from "@mui/material";
+import {AppBar, Avatar, Badge, Box, InputBase, Menu, styled, Toolbar, Typography} from "@mui/material";
 import {Pets} from "@mui/icons-material";
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
@@ -54,11 +54,15 @@ function Navbar() {
           <Icons>
             <Badge badgeContent={2} color={"error"}>
               <MarkunreadIcon sx={{
-                "&:hover": { color: theme.palette.primary.light}, "&:active": {color: theme.palette.secondary.light}
+                "&:hover": { color: theme.palette.primary.light}, "&:active": {color: theme.palette.secondary.light},
+                display: {xs: "none", sm: "block"}
               }}/>
             </Badge>
             <SettingsApplicationsIcon sx={{
-              "&:hover": { color: theme.palette.primary.light, "&:active": {color: theme.palette.secondary.light} }
+              "&:hover": { color: theme.palette.primary.light,
+                "&:active": {color: theme.palette.secondary.light},
+                display: {xs: "none", sm: "block"}
+              }
             }}/>
             <Avatar onClick={e => setMenuOpen(true) }
                     src={"static/images/middle-finger-svgrepo-com.svg"}

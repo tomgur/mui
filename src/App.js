@@ -11,7 +11,7 @@ import Bitcoin from "./components/Bitcoin";
 
 const App = () => {
   return (
-    <Container maxWidth={"xl"} sx={{ m: {xs: 3, sm: 1}, }}>
+    <Container maxWidth={"xl"}>
       <Router>
         <div className={"app"}>
           <Stack direction={"row"} justifyContent={"stretch"}>

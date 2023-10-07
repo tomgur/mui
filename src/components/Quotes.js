@@ -3,12 +3,14 @@ import {useState} from 'react';
 import {Button, Stack, styled, Typography} from "@mui/material";
 import {TextareaAutosize} from '@mui/base/TextareaAutosize';
 import MenuIntroduction from "./CatagoryDropDown";
-
+import ErrorModal from "./ErrorModal";
+import {StackedBarChart} from "@mui/icons-material";
 
 export default function Quotes() {
   const [quote, setQuote] = useState(""); // State for the quote
   const [author, setAuthor] = useState(""); // State for the author
   const [category, setCategory] = useState(""); // State for the category
+  const [error, setError] = useState(null); // State for the error modal
   const blue = {
     100: '#DAECFF',
     200: '#b6daff',
@@ -54,6 +56,7 @@ export default function Quotes() {
       setCategory(fixedCategory); // Update the category state
     } catch (error) {
       console.error('Error fetching quote:', error);
+      setError(error.message || 'Error fetching quote')
     }
   }
 
@@ -62,52 +65,68 @@ export default function Quotes() {
   }
   const StyledComponent = styled(TextareaAutosize)(
     ({ theme }) => `
-  width: 320px;
-  font-family: Roboto, sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  padding: 12px;
-  border-radius: 12px 12px 0 12px;
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-  border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  box-shadow: 0px 2px 24px ${theme.palette.mode === 'dark' ? blue[900] : blue[100]};
-
-  &:hover {
-    border-color: ${blue[400]};
-  }
-
-  &:focus {
-    border-color: ${blue[400]};
-    box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
-  }
-
-  // firefox
-  &:focus-visible {
-    outline: 0;
-  }
-`,
+      font-family: Roboto, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      border-radius: 12px 12px 0 12px;
+      color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+      background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+      border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
+      box-shadow: 0px 2px 24px ${theme.palette.mode === 'dark' ? blue[900] : blue[100]};
+    
+      &:hover {
+        border-color: ${blue[400]};
+      }
+    
+      &:focus {
+        border-color: ${blue[400]};
+        box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
+      }
+    
+      // firefox
+      &:focus-visible {
+        outline: 0;
+      }
+    `,
   );
   return (
-    <Stack spacing={1} marginTop={10} direction="column" flex={3} display={"flex"}>
-      <Stack direction="row" spacing={2} marginTop={2}>
-        <Typography display={"flex"}  alignItems={"center"} sx={{width:'15%'}}>
-          Quote:
-        </Typography>
-        <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange}  sx={{width:'85%'}} />
+    <Stack direction="column" display={"flex"}>
+      <div>
+        <ErrorModal
+        isOpen={error !== null}
+        onClose={() => setError(null)}
+        errorMessage={error} />
+      </div>
+      <Stack direction="row" marginTop={10}>
+        <Stack direction="column" flex={3}>
+          <Typography display={"flex"}  alignItems={"center"}>
+            Quote:
+          </Typography>
+        </Stack>
+        <Stack direction="column" flex={9} sx={{marginRight: 2}}>
+          <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} />
+        </Stack>
       </Stack>
-      <Stack direction="row" spacing={2} marginTop={2}>
-        <Typography display={"flex"}  alignItems={"center"}  width={"15%"}>
-          Author:
-        </Typography>
-        <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange}  sx={{width:'85%'}} />
+      <Stack direction="row">
+        <Stack direction="column" flex={3}>
+          <Typography display={"flex"}  alignItems={"center"}>
+            Author:
+          </Typography>
+        </Stack>
+        <Stack direction="column" flex={9} sx={{marginRight: 2}}>
+          <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} />
+        </Stack>
       </Stack>
-      <Stack direction="row" spacing={2} marginTop={2}>
-        <Typography display={"flex"}  alignItems={"center"}  width={"15%"}>
-          Category:
-        </Typography>
-        <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} sx={{width:'85%'}}/>
+      <Stack direction="row">
+        <Stack direction="column" flex={3}>
+          <Typography display={"flex"}  alignItems={"center"}>
+            Category:
+          </Typography>
+        </Stack>
+        <Stack direction="column" flex={9} sx={{marginRight: 2}}>
+          <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange}/>
+        </Stack>
       </Stack>
       <Stack direction={"row"} sx={{display: "flex", alignItems: "center", alignContent: "center"}}>
         <Button
