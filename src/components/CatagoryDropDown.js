@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Dropdown } from '@mui/base/Dropdown';
-import { Menu } from '@mui/base/Menu';
-import { MenuButton } from '@mui/base/MenuButton';
-import { MenuItem, menuItemClasses } from '@mui/base/MenuItem';
-import { styled } from '@mui/system';
-import {Stack} from "@mui/material";
+import {Dropdown} from '@mui/base/Dropdown';
+import {Menu} from '@mui/base/Menu';
+import {MenuButton} from '@mui/base/MenuButton';
+import {MenuItem, menuItemClasses} from '@mui/base/MenuItem';
+import {styled} from '@mui/system';
 
 export default function MenuIntroduction() {
   const [selectedCategory, setSelectedCategory] = React.useState(""); // State for the selected category
@@ -15,32 +14,32 @@ export default function MenuIntroduction() {
 
   return (
     <Dropdown>
-      <TriggerButton sx={{color:"white", margin: 1}}>{selectedCategory || 'CHOOSE CATEGORY'}</TriggerButton>
-      <Menu slots={{ listbox: StyledListbox }}>
-      <StyledMenuItem onClick={() => handleCategoryClick('success')}>
-        Success
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('movies')}>
-        Movies
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('morning')}>
-        Morning
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('money')}>
-        Money
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('mom')}>
-        Mom
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('men')}>
-        Men
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('medical')}>
-        Medical
-      </StyledMenuItem>
-      <StyledMenuItem onClick={() => handleCategoryClick('marriage')}>
-        Marriage
-      </StyledMenuItem>
+      <TriggerButton sx={{color: "white", margin: 1, disabled: true}} disabled>{selectedCategory || 'CHOOSE CATEGORY'}</TriggerButton>
+      <Menu slots={{listbox: StyledListbox}}>
+        <StyledMenuItem onClick={() => handleCategoryClick('success')}>
+          Success
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('movies')}>
+          Movies
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('morning')}>
+          Morning
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('money')}>
+          Money
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('mom')}>
+          Mom
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('men')}>
+          Men
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('medical')}>
+          Medical
+        </StyledMenuItem>
+        <StyledMenuItem onClick={() => handleCategoryClick('marriage')}>
+          Marriage
+        </StyledMenuItem>
       </Menu>
     </Dropdown>
   );
@@ -69,7 +68,7 @@ const grey = {
 };
 
 const StyledListbox = styled('ul')(
-  ({ theme }) => `
+  ({theme}) => `
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -87,7 +86,7 @@ const StyledListbox = styled('ul')(
 );
 
 const StyledMenuItem = styled(MenuItem)(
-  ({ theme }) => `
+  ({theme}) => `
   list-style: none;
   padding: 1px;
   border-radius: 8px;
@@ -116,7 +115,7 @@ const StyledMenuItem = styled(MenuItem)(
 );
 
 const TriggerButton = styled(MenuButton)(
-  ({ theme }) => `
+  ({theme}) => `
   font-family: Roboto, sans-serif;
   font-weight: 500;
   padding: 2px 12px;

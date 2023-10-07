@@ -129,14 +129,15 @@ export default function Quotes() {
           <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} disabled />
         </Stack>
       </Stack>
-      <Stack direction={"row"} sx={{display: "flex", alignItems: "center", alignContent: "center"}}>
-        <Button
-          variant="contained"
-          sx={{ marginTop: 2, marginRight: 2, display: "flex" }}
-          onClick={fetchRandomQuote}>
-          Get Random Quote
-        </Button>
-        <MenuIntroduction />
+      <Stack direction="column">
+        <Stack direction={"row"} sx={{display: "flex", justifyContent: "center"}}>
+          <Button
+            variant="contained"
+            sx={{ marginTop: 2, marginRight: 2, display: "flex" }}
+            onClick={fetchRandomQuote}>
+            Get Random Quote
+          </Button>
+        </Stack>
       </Stack>
     </Stack>
   );
