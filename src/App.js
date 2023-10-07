@@ -11,21 +11,38 @@ import Bitcoin from "./components/Bitcoin";
 
 const App = () => {
   return (
-    <Container maxWidth={"xl"}>
+    <Container>
       <Router>
         <div className={"app"}>
           <Stack direction={"row"} justifyContent={"stretch"}>
             <Navbar />
           </Stack>
           <Stack direction={"row"}>
-            <Sidebar />
-            <Switch>
-              <Route exact path={"/"} component={Feed} />
-              <Route exact path={"/quotes"} component={Quotes} />
-              <Route exact path={"/market"} component={Bitcoin} />
-            </Switch>
-            <Rightbar />
-            <Add />
+            <Stack direction={"column"} flex={1} sx={{
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "flex",
+              }
+            }}            >
+              <Sidebar />
+            </Stack>
+            <Stack direction={"column"} flex={10}>
+              <Switch>
+                <Route exact path={"/"} component={Feed} />
+                <Route exact path={"/quotes"} component={Quotes} />
+                <Route exact path={"/market"} component={Bitcoin} />
+              </Switch>
+            </Stack>
+            <Stack direction={"column"} flex={1} sx={{
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "flex",
+              }
+            }}>
+              <Rightbar />
+            </Stack>
           </Stack>
         </div>
       </Router>

@@ -10,7 +10,6 @@ const Sidebar = () => {
       }}>
       <Box>
         <List
-          sx={{maxWidth: "lg",}}
           component="nav"
         >
           <ListItemButton component={"a"} href={"/"}>

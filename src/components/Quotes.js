@@ -65,6 +65,7 @@ export default function Quotes() {
   }
   const StyledComponent = styled(TextareaAutosize)(
     ({ theme }) => `
+      padding: 0.75rem 1rem;
       font-family: Roboto, sans-serif;
       font-size: 0.875rem;
       font-weight: 400;
@@ -91,41 +92,41 @@ export default function Quotes() {
     `,
   );
   return (
-    <Stack direction="column" display={"flex"}>
+    <Stack direction="column" display={"flex"} marginLeft={2}>
       <div>
         <ErrorModal
         isOpen={error !== null}
         onClose={() => setError(null)}
         errorMessage={error} />
       </div>
-      <Stack direction="row" marginTop={10}>
-        <Stack direction="column" flex={3}>
+      <Stack direction="row" marginTop={10} marginBottom={1}>
+        <Stack direction="column" flex={3}  justifyContent={"center"}>
           <Typography display={"flex"}  alignItems={"center"}>
             Quote:
           </Typography>
         </Stack>
         <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-          <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} />
+          <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} disabled />
         </Stack>
       </Stack>
-      <Stack direction="row">
-        <Stack direction="column" flex={3}>
+      <Stack direction="row" marginBottom={1}>
+        <Stack direction="column" flex={3} justifyContent={"center"}>
           <Typography display={"flex"}  alignItems={"center"}>
             Author:
           </Typography>
         </Stack>
         <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-          <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} />
+          <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} disabled />
         </Stack>
       </Stack>
-      <Stack direction="row">
-        <Stack direction="column" flex={3}>
+      <Stack direction="row" marginBottom={1}>
+        <Stack direction="column" flex={3} justifyContent={"center"}>
           <Typography display={"flex"}  alignItems={"center"}>
             Category:
           </Typography>
         </Stack>
         <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-          <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange}/>
+          <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} disabled />
         </Stack>
       </Stack>
       <Stack direction={"row"} sx={{display: "flex", alignItems: "center", alignContent: "center"}}>
