@@ -1,4 +1,4 @@
-import {Avatar, AvatarGroup, Box, ImageList, ImageListItem, Typography} from "@mui/material";
+import {Avatar, AvatarGroup, Box, ImageList, ImageListItem, Stack, Typography} from "@mui/material";
 
 function srcset(image: string, size: number, rows = 1, cols = 1) {
   return {
@@ -11,11 +11,10 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
 
 function Rightbar() {
   return (
-    <Box flex={1} p={2} marginTop={7} sx={{
+    <Stack flex={1} p={2} marginTop={7} sx={{
       display: {xs: "none",
       sm: "block"},
       marginRight: 3,
-      justifyItems: "center",
     }}>
       <Box>
         <Typography variant="h6" fontWeight={100}>Online Friends</Typography>
@@ -50,7 +49,7 @@ function Rightbar() {
         </ImageList>
 
       </Box>
-    </Box>
+    </Stack>
   );
 }
 const itemData = [

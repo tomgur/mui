@@ -35,23 +35,24 @@ const UserBox = styled(Box)(({theme}) => ({
 
 const StyledToolbar = styled(Toolbar)(({theme}) => ({
   justifyContent: "space-between",
-  p: 2,
 }));
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [navOpen, setNavOpen] = React.useState(false);
   return (
-    <AppBar>
+    <AppBar sx={{justifyContent: "space-between", marginRight: 0}}>
         <StyledToolbar sx={{
           display: "flex",
+          justifyContent: "strech",
+          marginRight: 0,
         }}>
-          <Typography variant="h6" sx={{display: {xs: "none", sm: "block"}}}>פרצוף תחת</Typography>
-          <Pets sx={{display: {xs: "block", sm: "none"}, marginLeft:2}} onClick={() => setNavOpen(true)} />
+          <Typography variant="h6" sx={{display: {xs: "none", sm: "flex" }, marginLeft: -1}}>פרצוף תחת</Typography>
+          <Pets sx={{display: {xs: "block", sm: "none"}}} onClick={() => setNavOpen(true)} />
           <Search sx={{display: {xs: "none", sm: "block"}}}>
             <InputBase placeholder={"Search"} id={"search"}></InputBase>
           </Search>
-          <Icons>
+          <Icons sx={{ marginRight: -5}}>
             <Badge badgeContent={2} color={"error"}>
               <MarkunreadIcon sx={{
                 "&:hover": { color: theme.palette.primary.light}, "&:active": {color: theme.palette.secondary.light},
@@ -68,7 +69,7 @@ function Navbar() {
                     src={"static/images/middle-finger-svgrepo-com.svg"}
                     sx={{height: 30, width: 30, display: "flex", backgroundColor: "white", marginRight:5}}/>
           </Icons>
-          <UserBox onClick={e => setMenuOpen(true)} sx={{ marginRight:4 }}>
+          <UserBox onClick={e => setMenuOpen(true)} me={10}>
             <Typography variant="span">Tom</Typography>
             <Avatar
               src={"static/images/middle-finger-svgrepo-com.svg"}

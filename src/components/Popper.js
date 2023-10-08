@@ -3,7 +3,7 @@ import { Popper } from '@mui/base/Popper';
 import { styled, css } from '@mui/system';
 
 export default function SimplePopper(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {

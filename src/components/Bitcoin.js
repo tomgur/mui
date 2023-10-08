@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useState} from "react";
-import {Box, Button, Stack, styled, TextField, Typography} from "@mui/material";
+import {Button, Stack, styled, Typography} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import {TextareaAutosize} from "@mui/base/TextareaAutosize";
 
@@ -69,7 +69,7 @@ export default function Bitcoin() {
     `,
   );
   return (
-    <Paper sx={{marginTop: 10}}>
+    <Paper sx={{marginTop: 10, padding: 1, marginX:2}}>
       <Stack direction={"column"}>
         <Stack direction={"row"}>
           <Typography margin={1.5}>Bitcoin Price:</Typography>
