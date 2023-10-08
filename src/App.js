@@ -25,7 +25,7 @@ const App = () => {
             }}>
               <Sidebar />
             </Stack>
-            <Stack direction={"column"} flex={8}>
+            <Stack direction={"column"} flex={6}>
               <Switch>
                 <Route exact path={"/"} component={Feed} />
                 <Route exact path={"/quotes"} component={Quotes} />
@@ -39,7 +39,7 @@ const App = () => {
                 md: "flex",
               }
             }}>
-              <Rightbar />
+              <Rightbar sx={{ marginRight:0 }} />
             </Stack>
           </Stack>
         </div>

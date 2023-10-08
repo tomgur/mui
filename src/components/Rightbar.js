@@ -11,43 +11,45 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
 
 function Rightbar() {
   return (
-    <Stack flex={1} p={2} marginTop={7} sx={{
+    <Stack p={2} marginTop={7} marginRight={0} sx={{
       display: {xs: "none",
       sm: "block"},
       marginRight: 3,
     }}>
       <Box>
-        <Typography variant="h6" fontWeight={100}>Online Friends</Typography>
-        <AvatarGroup max={4} style={{
-          alignItems: "left",
-          alignSelf: "left",
-          justifyContent: "left",
-          display: "flex",
-        }}>
-          <Avatar alt="Remy Sharp" src="static/images/avatar/1.jpg" />
-          <Avatar alt="Travis Howard" src="static/images/avatar/2.png" />
-          <Avatar alt="Cindy Baker" src="static/images/avatar/3.jpeg" />
-          <Avatar alt="Agnes Walker" src="static/images/avatar/4.jpg" />
-          <Avatar alt="Trevor Henderson" src="static/images/avatar/5.jpg" />
-        </AvatarGroup>
-        <Typography variant="h6" fontWeight={100} marginTop={5}>Latest Photos</Typography>
-        <ImageList
-          sx={{ width: "100%", height: 450 }}
-          variant="quilted"
-          cols={3}
-          rowHeight={150}
-        >
-          {itemData.map((item) => (
-            <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-              <img
-                {...srcset(item.img, 121, item.rows, item.cols)}
-                alt={item.title}
-                loading="lazy"
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
-
+        <Stack>
+          <Typography variant="h6" fontWeight={100}>Online Friends</Typography>
+          <AvatarGroup max={4} style={{
+            alignItems: "left",
+            justifyContent: "left",
+            display: "flex",
+          }}>
+            <Avatar alt="Remy Sharp" src="static/images/avatar/1.jpg" />
+            <Avatar alt="Travis Howard" src="static/images/avatar/2.png" />
+            <Avatar alt="Cindy Baker" src="static/images/avatar/3.jpeg" />
+            <Avatar alt="Agnes Walker" src="static/images/avatar/4.jpg" />
+            <Avatar alt="Trevor Henderson" src="static/images/avatar/5.jpg" />
+          </AvatarGroup>
+        </Stack>
+        <Stack marginRight={0}>
+          <Typography variant="h6" fontWeight={100} marginTop={5}>Latest Photos</Typography>
+          <ImageList
+            sx={{ width: "100%", height: 450 }}
+            variant="quilted"
+            cols={3}
+            rowHeight={150}
+          >
+            {itemData.map((item) => (
+              <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+                <img
+                  {...srcset(item.img, 121, item.rows, item.cols)}
+                  alt={item.title}
+                  loading="lazy"
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </Stack>
       </Box>
     </Stack>
   );

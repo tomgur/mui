@@ -5,6 +5,7 @@ import {TextareaAutosize} from '@mui/base/TextareaAutosize';
 import MenuIntroduction from "./CatagoryDropDown";
 import ErrorModal from "./ErrorModal";
 import {StackedBarChart} from "@mui/icons-material";
+import Paper from "@mui/material/Paper";
 
 export default function Quotes() {
   const [quote, setQuote] = useState(""); // State for the quote
@@ -92,53 +93,56 @@ export default function Quotes() {
     `,
   );
   return (
-    <Stack direction="column" display={"flex"} marginLeft={2}>
-      <div>
-        <ErrorModal
-        isOpen={error !== null}
-        onClose={() => setError(null)}
-        errorMessage={error} />
-      </div>
-      <Stack direction="row" marginTop={10} marginBottom={1}>
-        <Stack direction="column" flex={3}  justifyContent={"center"}>
-          <Typography display={"flex"}  alignItems={"center"}>
-            Quote:
-          </Typography>
+    <Paper elevation={3} sx={{marginTop: 2}}>
+      <Stack direction="column" display={"flex"} marginLeft={2}>
+        <div>
+          <ErrorModal
+            isOpen={error !== null}
+            onClose={() => setError(null)}
+            errorMessage={error} />
+        </div>
+        <Stack direction="row" marginTop={10} marginBottom={1}>
+          <Stack direction="column" flex={3}  justifyContent={"center"}>
+            <Typography display={"flex"}  alignItems={"center"}>
+              Quote:
+            </Typography>
+          </Stack>
+          <Stack direction="column" flex={9} sx={{marginRight: 2}}>
+            <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} disabled />
+          </Stack>
         </Stack>
-        <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-          <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} disabled />
+        <Stack direction="row" marginBottom={1}>
+          <Stack direction="column" flex={3} justifyContent={"center"}>
+            <Typography display={"flex"}  alignItems={"center"}>
+              Author:
+            </Typography>
+          </Stack>
+          <Stack direction="column" flex={9} sx={{marginRight: 2}}>
+            <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} disabled />
+          </Stack>
+        </Stack>
+        <Stack direction="row" marginBottom={1}>
+          <Stack direction="column" flex={3} justifyContent={"center"}>
+            <Typography display={"flex"}  alignItems={"center"}>
+              Category:
+            </Typography>
+          </Stack>
+          <Stack direction="column" flex={9} sx={{marginRight: 2}}>
+            <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} disabled />
+          </Stack>
+        </Stack>
+        <Stack direction="column">
+          <Stack direction={"row"} sx={{display: "flex", justifyContent: "center", marginBottom: 2}}>
+            <Button
+              variant="contained"
+              sx={{ marginTop: 2, marginRight: 2, display: "flex" }}
+              onClick={fetchRandomQuote}>
+              Get Random Quote
+            </Button>
+          </Stack>
         </Stack>
       </Stack>
-      <Stack direction="row" marginBottom={1}>
-        <Stack direction="column" flex={3} justifyContent={"center"}>
-          <Typography display={"flex"}  alignItems={"center"}>
-            Author:
-          </Typography>
-        </Stack>
-        <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-          <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} disabled />
-        </Stack>
-      </Stack>
-      <Stack direction="row" marginBottom={1}>
-        <Stack direction="column" flex={3} justifyContent={"center"}>
-          <Typography display={"flex"}  alignItems={"center"}>
-            Category:
-          </Typography>
-        </Stack>
-        <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-          <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} disabled />
-        </Stack>
-      </Stack>
-      <Stack direction="column">
-        <Stack direction={"row"} sx={{display: "flex", justifyContent: "center"}}>
-          <Button
-            variant="contained"
-            sx={{ marginTop: 2, marginRight: 2, display: "flex" }}
-            onClick={fetchRandomQuote}>
-            Get Random Quote
-          </Button>
-        </Stack>
-      </Stack>
-    </Stack>
-  );
+    </Paper>
+
+);
 }
