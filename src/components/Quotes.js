@@ -1,38 +1,16 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {Button, Stack, styled, Typography} from "@mui/material";
-import {TextareaAutosize} from '@mui/base/TextareaAutosize';
-import MenuIntroduction from "./CatagoryDropDown";
+import {Button, Stack, Typography} from "@mui/material";
 import ErrorModal from "./ErrorModal";
-import {StackedBarChart} from "@mui/icons-material";
 import Paper from "@mui/material/Paper";
+import StyledComponent from "../Common";
 
 export default function Quotes() {
   const [quote, setQuote] = useState(""); // State for the quote
   const [author, setAuthor] = useState(""); // State for the author
   const [category, setCategory] = useState(""); // State for the category
   const [error, setError] = useState(null); // State for the error modal
-  const blue = {
-    100: '#DAECFF',
-    200: '#b6daff',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
-  };
 
-  const grey = {
-    50: '#f6f8fa',
-    100: '#eaeef2',
-    200: '#d0d7de',
-    300: '#afb8c1',
-    400: '#8c959f',
-    500: '#6e7781',
-    600: '#57606a',
-    700: '#424a53',
-    800: '#32383f',
-    900: '#24292f',
-  };
 
 
   const handleQuoteChange = (event) => {
@@ -64,34 +42,7 @@ export default function Quotes() {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-  const StyledComponent = styled(TextareaAutosize)(
-    ({ theme }) => `
-      padding: 0.75rem 1rem;
-      font-family: Roboto, sans-serif;
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 1.5;
-      border-radius: 12px 12px 0 12px;
-      color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-      background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-      border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-      box-shadow: 0px 2px 24px ${theme.palette.mode === 'dark' ? blue[900] : blue[100]};
-    
-      &:hover {
-        border-color: ${blue[400]};
-      }
-    
-      &:focus {
-        border-color: ${blue[400]};
-        box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
-      }
-    
-      // firefox
-      &:focus-visible {
-        outline: 0;
-      }
-    `,
-  );
+
   return (
     <Paper elevation={3} sx={{marginTop: 2}}>
       <Stack direction="column" display={"flex"} marginLeft={2}>

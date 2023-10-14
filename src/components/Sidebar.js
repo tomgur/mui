@@ -29,11 +29,11 @@ const Sidebar = () => {
             </ListItemIcon>
             <ListItemText primary="Market"/>
           </ListItemButton>
-          <ListItemButton component={"a"} href={"#groups"}>
+          <ListItemButton component={"a"} href={"/calc"}>
             <ListItemIcon>
               <Group/>
             </ListItemIcon>
-            <ListItemText primary="Groups"/>
+            <ListItemText primary="Utils"/>
           </ListItemButton>
           <ListItemButton component={"a"} href={"#friends"}>
             <ListItemIcon>
@@ -41,7 +41,7 @@ const Sidebar = () => {
             </ListItemIcon>
             <ListItemText primary="Friends"/>
           </ListItemButton>
-          <ListItemButton component={"a"} href={"#settings"}>
+          <ListItemButton component={"a"} href={"/settings"}>
             <ListItemIcon>
               <Settings/>
             </ListItemIcon>

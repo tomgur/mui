@@ -6,6 +6,8 @@ import Feed from "./components/Feed";
 import Rightbar from "./components/Rightbar";
 import Quotes from "./components/Quotes";
 import Bitcoin from "./components/Bitcoin";
+import Settings from "./components/Settings";
+import Calc from "./components/Calc";
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
                 <Route exact path={"/"} component={Feed} />
                 <Route exact path={"/quotes"} component={Quotes} />
                 <Route exact path={"/market"} component={Bitcoin} />
+                <Route exact path={"/settings"} component={Settings} />
+                <Route exact path={"/calc"} component={Calc} />
               </Switch>
             </Stack>
             <Stack direction={"column"} flex={3} sx={{
