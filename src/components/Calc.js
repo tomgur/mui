@@ -14,9 +14,24 @@ const Calc = () => {
   function addNumber(number) {
     setTheQuestion(theQuestion + number)
   }
+  function calculate() {
+    let devide = theQuestion.split("/")
+    let multiply = theQuestion.split("*")
+    let subtract = theQuestion.split("-")
+    let add = theQuestion.split("+")
+    if (devide.length > 1) {
+      setTheQuestion(parseInt(devide[0]) / parseInt(devide[1]))
+    } else if (multiply.length > 1) {
+      setTheQuestion(parseInt(multiply[0]) * parseInt(multiply[1]))
+    } else if (subtract.length > 1) {
+      setTheQuestion(parseInt(subtract[0]) - parseInt(subtract[1]))
+    } else if (add.length > 1) {
+      setTheQuestion(parseInt(add[0]) + parseInt(add[1]))
+    }
+  }
 
   return (
-    <Stack mt={30} margin={12} width={"30%"}>
+    <Stack mt={30} margin={12} width={"30%"} minWidth={330}>
       <Stack direction={"row"} spacing={8} justifyContent="center">
         <Stack direction={"row"} spacing={8} justifyContent="center">
           <StyledComponent label={"Screen"} placeholder={"Screen"} value={theQuestion} disabled id={"screen"}/>
@@ -46,7 +61,9 @@ const Calc = () => {
         <ArrowBackIcon height={24} width={24} onClick={() => setTheQuestion(theQuestion.slice(0, -1))} alt={"Back"}/>
         <ClearIcon height={24} width={24} onClick={() => setTheQuestion(theQuestion + "/")} alt={"Divide"} style={{marginRight:2}}/>
       </Stack>
-      <Stack direction={"row"} mt={5} justifyContent="center" justifyItems="center" fontSize="48" fontWeight="400" mr={11}><Button>=</Button></Stack>
+      <Stack direction={"row"} mt={5} justifyContent="center" justifyItems="center" fontSize="48" fontWeight="400" mr={11}>
+        <Button onClick={calculate}>=</Button>
+      </Stack>
 
 
     </Stack>
