@@ -6,6 +6,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
+import {fontSize} from "@mui/system";
 
 function Calc() {
   const [theQuestion, setTheQuestion] = useState("")
@@ -96,17 +97,16 @@ function Calc() {
         <img src={"static/images/nine.svg"} height={24} width={24} alt={""} onClick={() => addNumberToDisplay(9)}/>
         <CloseIcon height={24} width={24} onClick={() => setTheQuestion(theQuestion + "*")} alt={"Multiply"}/>
       </Stack>
-      <Stack direction={"row"} spacing={7} mt={5} justifyContent="center" justifyItems="center">
-        <ClearIcon height={24} width={24} onClick={() => setTheQuestion("")} alt={"Clear"}/>
-        <img src={"static/images/zero.svg"} height={24} width={24} style={{marginRight: 8}} alt={""}
+      <Stack direction={"row"} mt={5} justifyContent={"space-evenly"} ml={-5}>
+        <ClearIcon height={24} width={24} onClick={() => setTheQuestion("")} alt={"Clear"} border={"1px solid black"}/>
+        <img src={"static/images/zero.svg"} height={24} width={24} alt={""}
              onClick={() => addNumberToDisplay(0)}/>
         <ArrowBackIcon height={24} width={24} onClick={() => setTheQuestion(theQuestion.slice(0, -1))} alt={"Back"}/>
-        <ClearIcon height={24} width={24} onClick={() => setTheQuestion(theQuestion + "/")} alt={"Divide"}
-                   style={{marginRight: 2}}/>
+        <img src={"static/images/division-svgrepo-com.svg"} height={24} width={24}  onClick={() => setTheQuestion(theQuestion + "/")} alt={"Divide"} style={{marginRight:-38}}/>
       </Stack>
       <Stack direction={"row"} mt={5} justifyContent="center" justifyItems="center" fontSize="48" fontWeight="400"
              mr={11}>
-        <Button onClick={calculate}>=</Button>
+        <Button onClick={calculate} style={{fontSize: 28}}>=</Button>
       </Stack>
     </Stack>
   )
