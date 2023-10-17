@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {Button, Stack, Typography} from "@mui/material";
 import ErrorModal from "./ErrorModal";
 import Paper from "@mui/material/Paper";
-import StyledComponent from "../Common";
+import StyledTextareaAutosize from "../Common";
 
 export default function Quotes() {
   const [quote, setQuote] = useState(""); // State for the quote
@@ -59,7 +59,7 @@ export default function Quotes() {
             </Typography>
           </Stack>
           <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-            <StyledComponent label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} disabled />
+            <StyledTextareaAutosize label={"Quote"} placeholder={"Quote"} value={quote} onChange={handleQuoteChange} disabled />
           </Stack>
         </Stack>
         <Stack direction="row" marginBottom={1}>
@@ -69,7 +69,7 @@ export default function Quotes() {
             </Typography>
           </Stack>
           <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-            <StyledComponent label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} disabled />
+            <StyledTextareaAutosize label={"Author"} placeholder={"Author"} value={author} onChange={handleQuoteChange} disabled />
           </Stack>
         </Stack>
         <Stack direction="row" marginBottom={1}>
@@ -79,7 +79,7 @@ export default function Quotes() {
             </Typography>
           </Stack>
           <Stack direction="column" flex={9} sx={{marginRight: 2}}>
-            <StyledComponent label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} disabled />
+            <StyledTextareaAutosize label={"Category"} placeholder={"Category"} value={category} onChange={handleQuoteChange} disabled />
           </Stack>
         </Stack>
         <Stack direction="column">

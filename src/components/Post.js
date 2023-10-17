@@ -20,7 +20,7 @@ function Post(props){
     <Card sx={{margin:5}}>
       <CardHeader
         avatar={
-          <Avatar sx={{bgcolor: props.avatarColor}}>
+          <Avatar sx={{bgcolor: props.avatarColor,border: '1px solid black'}} src={props.imgSrc} >
             {props.author}
           </Avatar>
         }

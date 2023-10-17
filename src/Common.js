@@ -1,7 +1,37 @@
 import {styled} from "@mui/system";
 import {TextareaAutosize} from "@mui/base/TextareaAutosize";
+import {TextField} from "@mui/material";
 
-const StyledComponent = styled(TextareaAutosize)(
+const StyledTextareaAutosize = styled(TextareaAutosize)(
+    ({ theme }) => `
+      padding: 0.75rem 1rem;
+      font-family: Roboto, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      border-radius: 12px 12px 0 12px;
+      color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+      background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+      border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
+      box-shadow: 0px 2px 24px ${theme.palette.mode === 'dark' ? blue[900] : blue[100]};
+    
+      &:hover {
+        border-color: ${blue[400]};
+      }
+    
+      &:focus {
+        border-color: ${blue[400]};
+        box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
+      }
+    
+      // firefox
+      &:focus-visible {
+        outline: 0;
+      }
+    `,
+  );
+
+const StyledTexField = styled(TextField)(
     ({ theme }) => `
       padding: 0.75rem 1rem;
       font-family: Roboto, sans-serif;
@@ -51,4 +81,5 @@ const grey = {
   800: '#32383f',
   900: '#24292f',
 };
-export default StyledComponent;
+export default StyledTextareaAutosize;
+export {StyledTexField};
