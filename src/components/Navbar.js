@@ -66,13 +66,13 @@ function Navbar() {
               }
             }}/>
             <Avatar onClick={e => setMenuOpen(true) }
-                    src={"static/images/middle-finger-svgrepo-com.svg"}
-                    sx={{height: 30, width: 30, display: "flex", backgroundColor: "white", marginRight:5}}/>
+                    src={"static/images/flag-for-israel-svgrepo-com.svg"}
+                    sx={{height: 25, width: 25, display: "flex", backgroundColor: "white", marginRight:5}}/>
           </Icons>
           <UserBox onClick={e => setMenuOpen(true)} me={10}>
             <Typography variant="span">Tom</Typography>
             <Avatar
-              src={"static/images/middle-finger-svgrepo-com.svg"}
+              src={"static/images/flag-for-israel-svgrepo-com.svg"}
               sx={{height: 30, width: 30, display: "flex", backgroundColor: "white"}}/>
           </UserBox>
         </StyledToolbar>

@@ -41,14 +41,17 @@ export default function MenuListComposition() {
           onKeyDown={handleListKeyDown}
           onMouseEnter={handleToggle}
           onMouseLeave={handleClose}>
-          <MenuItem  onMouseUp={handleClose} href={"/"}>
+          <MenuItem  onClick={handleToggle} href={"/"}>
             <Link to={"/"} style={{ textDecoration: 'none' }}>Home</Link>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleToggle}>
             <Link to={"/quotes"} style={{ textDecoration: 'none' }}>Quotes</Link>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleToggle}>
             <Link to={"/market"}  style={{ textDecoration: 'none' }}>Market</Link>
+          </MenuItem>
+          <MenuItem onClick={handleToggle}>
+            <Link to={"/calc"}  style={{ textDecoration: 'none' }}>Utilities</Link>
           </MenuItem>
         </MenuList>
       </Paper>

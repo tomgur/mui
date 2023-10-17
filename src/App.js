@@ -23,6 +23,8 @@ const App = () => {
                 xs: "none",
                 sm: "flex",
                 md: "flex",
+                lg: "flex",
+                xl: "flex",
               }
             }}>
               <Sidebar />
