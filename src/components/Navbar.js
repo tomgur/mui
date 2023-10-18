@@ -5,6 +5,8 @@ import MarkunreadIcon from '@mui/icons-material/Markunread';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import theme from "../theme";
 import MenuListComposition from "./SmallMenu";
+import {StyledAvatar} from "../Common";
+import {Link} from "react-router-dom";
 
 
 const Search = styled("div")(({theme}) => ({
@@ -48,7 +50,6 @@ function Navbar() {
           marginRight: 0,
         }}>
           <Typography variant="h6" sx={{display: {xs: "none", sm: "flex" }, marginLeft: -1}}>פרצוף תחת</Typography>
-          <Pets sx={{display: {xs: "block", sm: "none"}}} onClick={() => setNavOpen(true)} />
           <Search sx={{display: {xs: "none", sm: "block"}}}>
             <InputBase placeholder={"Search"} id={"search"}></InputBase>
           </Search>
@@ -59,21 +60,22 @@ function Navbar() {
                 display: {xs: "none", sm: "block"}
               }}/>
             </Badge>
-            <SettingsApplicationsIcon sx={{
+            <SettingsApplicationsIcon href={"/setting"} sx={{
               "&:hover": { color: theme.palette.primary.light,
                 "&:active": {color: theme.palette.secondary.light},
                 display: {xs: "none", sm: "block"}
               }
-            }}/>
-            <Avatar onClick={e => setMenuOpen(true) }
+            }}>
+              <Link to={"/setting"}>Settings</Link>
+            </SettingsApplicationsIcon>
+            <Avatar onClick={e => setNavOpen(true) }
                     src={"static/images/flag-for-israel-svgrepo-com.svg"}
                     sx={{height: 25, width: 25, display: "flex", backgroundColor: "white", marginRight:5}}/>
           </Icons>
-          <UserBox onClick={e => setMenuOpen(true)} me={10}>
-            <Typography variant="span">Tom</Typography>
-            <Avatar
-              src={"static/images/flag-for-israel-svgrepo-com.svg"}
-              sx={{height: 30, width: 30, display: "flex", backgroundColor: "white"}}/>
+          <UserBox onClick={e => setNavOpen(true)} me={10}>
+            <StyledAvatar
+              src="static/images/flag-for-israel-svgrepo-com.svg" />
+            <Typography variant="span">Israel</Typography>
           </UserBox>
         </StyledToolbar>
         <Menu
