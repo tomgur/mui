@@ -39,10 +39,10 @@ const StyledToolbar = styled(Toolbar)(({theme}) => ({
   justifyContent: "space-between",
 }));
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = React.useState(false);
+function Navbar(props) {
   const [navOpen, setNavOpen] = React.useState(false);
   return (
+    props.profilePicture ? (
     <AppBar sx={{justifyContent: "space-between", marginRight: 0}}>
         <StyledToolbar sx={{
           display: "flex",
@@ -69,7 +69,7 @@ function Navbar() {
               <Link to={"/setting"}>Settings</Link>
             </SettingsApplicationsIcon>
             <Avatar onClick={e => setNavOpen(true) }
-                    src={"static/images/flag-for-israel-svgrepo-com.svg"}
+                    src={props.profilePicture}
                     sx={{height: 25, width: 25, display: "flex", backgroundColor: "white", marginRight:5}}/>
           </Icons>
           <UserBox onClick={e => setNavOpen(true)} me={10}>
@@ -94,6 +94,9 @@ function Navbar() {
           <MenuListComposition/>
       </Menu>
     </AppBar>
+    ) : (
+      <p></p>
+    )
   );
 }
 

@@ -70,7 +70,7 @@ const App = () => {
         </div>
         <div className={"app"}>
           <Stack direction={"row"} justifyContent={"stretch"}>
-            <Navbar />
+            <Navbar profilePicture={profile?profile.picture:"static/images/flag-for-israel-svgrepo-com.svg"} />
           </Stack>
           <Stack direction={"row"}>
             <Stack direction={"column"} flex={1} sx={{
