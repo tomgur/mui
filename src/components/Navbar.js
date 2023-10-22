@@ -42,62 +42,57 @@ const StyledToolbar = styled(Toolbar)(({theme}) => ({
 function Navbar(props) {
   const [navOpen, setNavOpen] = React.useState(false);
   return (
-    props.profilePicture ? (
     <AppBar sx={{justifyContent: "space-between", marginRight: 0}}>
-        <StyledToolbar sx={{
-          display: "flex",
-          justifyContent: "strech",
-          marginRight: 0,
-        }}>
-          <Typography variant="h6" sx={{display: {xs: "none", sm: "flex" }, marginLeft: -1}}>פרצוף תחת</Typography>
-          <Search sx={{display: {xs: "none", sm: "block"}}}>
-            <InputBase placeholder={"Search"} id={"search"}></InputBase>
-          </Search>
-          <Icons sx={{ marginRight: -5}}>
+      <StyledToolbar sx={{
+        display: "flex",
+        justifyContent: "strech",
+        marginRight: 0,
+      }}>
+        <Typography variant="h6" sx={{display: {xs: "none", sm: "flex"}, marginLeft: -1}}>האפליקציה</Typography>
+        <Search sx={{display: {xs: "none", sm: "block"}}}>
+          <InputBase placeholder={"Search"} id={"search"}></InputBase>
+        </Search>
+        {props.profile !== "" ? (
+          <Icons sx={{marginRight: -5}}>
             <Badge badgeContent={2} color={"error"}>
               <MarkunreadIcon sx={{
-                "&:hover": { color: theme.palette.primary.light}, "&:active": {color: theme.palette.secondary.light},
+                "&:hover": {color: theme.palette.primary.light}, "&:active": {color: theme.palette.secondary.light},
                 display: {xs: "none", sm: "block"}
               }}/>
             </Badge>
             <SettingsApplicationsIcon href={"/setting"} sx={{
-              "&:hover": { color: theme.palette.primary.light,
+              "&:hover": {
+                color: theme.palette.primary.light,
                 "&:active": {color: theme.palette.secondary.light},
                 display: {xs: "none", sm: "block"}
               }
             }}>
               <Link to={"/setting"}>Settings</Link>
             </SettingsApplicationsIcon>
-            <Avatar onClick={e => setNavOpen(true) }
+            <Avatar onClick={e => setNavOpen(true)}
                     src={props.profilePicture}
-                    sx={{height: 25, width: 25, display: "flex", backgroundColor: "white", marginRight:5}}/>
+                    sx={{height: 25, width: 25, display: "flex", backgroundColor: "white", marginRight: 5}}/>
           </Icons>
-          <UserBox onClick={e => setNavOpen(true)} me={10}>
-            <StyledAvatar
-              src="static/images/flag-for-israel-svgrepo-com.svg" />
-            <Typography variant="span">Israel</Typography>
-          </UserBox>
-        </StyledToolbar>
-        <Menu
-          id="nav-menu"
-          open={navOpen}
-          onClose={e => setNavOpen(false)}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-        >
-          <MenuListComposition/>
+        ) : (
+          <span/>
+        )}
+      </StyledToolbar>
+      <Menu
+        id="nav-menu"
+        open={navOpen}
+        onClose={e => setNavOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <MenuListComposition/>
       </Menu>
-    </AppBar>
-    ) : (
-      <p></p>
-    )
-  );
+    </AppBar>);
 }
 
 export default Navbar;
